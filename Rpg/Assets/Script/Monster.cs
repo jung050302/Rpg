@@ -51,11 +51,24 @@ public class Monster : MonoBehaviour
         rdm_y = Random.Range(91, 76);
         rdmTimer = Random.Range(1, 4);
         scale = this.gameObject.transform.localScale.x;
+        if (GameObject.Find("Player") != null)
+        {
+            if (GameObject.Find("Player").GetComponent<Player>().lv % 10 == 0)
+            {
+                atk *= 2;
+                defense *= 2;
+                exp *= 2;
+                hp *= 2;
+                maxHp *= 2;
+            }
+        }
+         
     }
 
     // Update is called once per frame
     void Update()
     {
+         
         if (i < 1)
         {
             if (hp <= 0)
@@ -202,7 +215,7 @@ public class Monster : MonoBehaviour
              
             hp -= 0;
              
-            return defense - (int)a;
+            return 0;
              
         }
         else

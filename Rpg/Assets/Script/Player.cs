@@ -11,16 +11,19 @@ public class Player : MonoBehaviour
     public Sprite axe;
     public Animator ani;
 
+    public GameObject Damagetext;
+    public Camera _camera;
+
     float saveExp;
 
     //½ºÅÝ
-    int lv;
+    public int lv;
     int hp;
     int maxHp;
     float maxExp;
     float exp;
     public int atk;
-    int defense;
+    public int defense;
     int str;
 
     public bool playerAtk;
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour
     public Image black;
      
     public GameObject _audio;
+    public GameObject boss;
     void Start()
     {
          
@@ -73,7 +77,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(atk);
+        print("¹æ¾î·Â" + defense);
+        
         if(Input.GetKey(KeyCode.LeftControl)&& Input.GetKey(KeyCode.D))
         {
              
@@ -179,18 +184,18 @@ public class Player : MonoBehaviour
     public void LvUp()
     {
         lv++;
-        maxExp += (maxExp * 3) / 100;
+        maxExp += (maxExp * 5) / 100;
         exp = 0;
          
-        defense += 5;
+        defense += (defense * 3 / 100)+5;
         str+= 10;
         
         maxHp += maxHp * 5 / 100;
         hp = maxHp;
-        atk += ((atk * 8) / 100) + str/2;
+        atk += ((atk * 4) / 100) + str/2;
         GameObject.Find("EXP").GetComponent<Image>().fillAmount = (float)exp / (float)maxExp;
         GameObject.Find("HPbar").GetComponent<Image>().fillAmount = (float)hp / (float)maxHp;
-        
+         
     }
     public void AddExp(float a)
     {
@@ -238,6 +243,23 @@ public class Player : MonoBehaviour
         if(pos.y < 73.5 && pos.y > 72.5)
         {
             gameObject.transform.position = new Vector2(pos.x, 73.55f);
+        }
+
+        if(pos.x < 108.3f&&pos.x>107.3f)
+        {
+            gameObject.transform.position = new Vector2(108.3f, pos.y);
+        }
+        else if(pos.x> 166.6f && pos.x < 170.6f)
+        {
+            gameObject.transform.position = new Vector2(166.5f, pos.y);
+        }
+        if(pos.y> 15.2f && pos.y < 16f&&pos.x> 108.35f)
+        {
+            gameObject.transform.position = new Vector2(pos.x, 15f);
+        } 
+        else if (pos.y < -22.5f && pos.y > -23f)
+        {
+            gameObject.transform.position = new Vector2(pos.x, -22.3f);
         }
     }
 
@@ -315,6 +337,18 @@ public class Player : MonoBehaviour
         {
             _audio.GetComponent<AudioSource>().clip = _audio.GetComponent<BGM>().bgm[1];
             _audio.GetComponent<AudioSource>().Play();
+        }
+        if(collision.gameObject.tag == "BossStage")
+        {
+            _audio.GetComponent<AudioSource>().clip = _audio.GetComponent<BGM>().bgm[2];
+            _audio.GetComponent<AudioSource>().Play();
+        }
+        if(collision.gameObject.name== "L_Weapon_Boss"&& boss.GetComponent<Boss>().bossAtk==true)
+        {
+            Damage(boss.GetComponent<Boss>().atk);
+            GameObject _text = Instantiate(Damagetext);
+            _text.transform.position = _camera.WorldToScreenPoint(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + 3));
+            _text.GetComponent<Text>().text = Damage(boss.GetComponent<Boss>().atk).ToString();
         }
     }
 
