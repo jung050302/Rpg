@@ -184,13 +184,13 @@ public class Player : MonoBehaviour
     public void LvUp()
     {
         lv++;
-        maxExp += (maxExp * 15) / 100;
+        maxExp += (maxExp * 11) / 100;
         exp = 0;
          
         defense += (defense * 6 / 100)+5;
         str+= 10;
         
-        maxHp += maxHp * 9 / 100;
+        maxHp += maxHp * 10 / 100;
         hp = maxHp;
         atk += ((atk * 4) / 100) + str/2;
         GameObject.Find("EXP").GetComponent<Image>().fillAmount = (float)exp / (float)maxExp;
