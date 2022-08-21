@@ -32,6 +32,8 @@ public class Monster : MonoBehaviour
 
      
     public GameObject Damagetext;
+
+
      
     void Start()
     {
@@ -51,24 +53,40 @@ public class Monster : MonoBehaviour
         rdm_y = Random.Range(91, 76);
         rdmTimer = Random.Range(1, 4);
         scale = this.gameObject.transform.localScale.x;
-        if (GameObject.Find("Player") != null)
+
+        if (GameObject.Find("Player").GetComponent<Player>().lv % 10 == 0)
         {
-            if (GameObject.Find("Player").GetComponent<Player>().lv % 10 == 0)
-            {
-                atk *= 2;
-                defense *= 2;
-                exp *= 2;
-                hp *= 2;
-                maxHp *= 2;
-            }
+             
+            atk *= GameObject.Find("Player").GetComponent<Player>().lv / 10;
+            defense *= GameObject.Find("Player").GetComponent<Player>().lv/10;
+            exp *= GameObject.Find("Player").GetComponent<Player>().lv/10;
+            hp *= GameObject.Find("Player").GetComponent<Player>().lv/10;
+             
+             
         }
-         
+
     }
 
     // Update is called once per frame
     void Update()
     {
          
+
+        Vector2 p1 = transform.position;
+        Vector2 p2 = GameObject.Find("Player").transform.position;
+        Vector2 dir = p1 - p2;
+        float d = dir.magnitude;
+        float r1 = 1.5f;
+        float r2 = 1.5f;
+        if (d < r1 + r2)
+        {
+             
+            chaseThePlayer = true;
+        }
+        else
+        {
+            chaseThePlayer = false;
+        }
         if (i < 1)
         {
             if (hp <= 0)

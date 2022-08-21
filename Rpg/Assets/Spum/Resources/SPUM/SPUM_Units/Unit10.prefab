@@ -257,67 +257,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1686435667793422748
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2326475121887902644}
-  - component: {fileID: 4521720383177392694}
-  - component: {fileID: 1714455356700600809}
-  m_Layer: 0
-  m_Name: range
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2326475121887902644
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686435667793422748}
-  m_LocalRotation: {x: -0, y: -0.008727774, z: -0, w: 0.9999619}
-  m_LocalPosition: {x: 0.004251386, y: -0.013254802, z: -0.057136774}
-  m_LocalScale: {x: 0.33340105, y: 0.33333334, z: 0.9993911}
-  m_Children: []
-  m_Father: {fileID: 6987801308082639579}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4521720383177392694
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686435667793422748}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  serializedVersion: 2
-  m_Radius: 2.3
---- !u!114 &1714455356700600809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686435667793422748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2a85fbaa3aa314ca49be31c48bb7fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mst: {fileID: 6987801308082639578}
 --- !u!1 &2422605159282163983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2028,6 @@ RectTransform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 2422605159653829517}
-  - {fileID: 2326475121887902644}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

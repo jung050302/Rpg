@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("¹æ¾î·Â" + defense);
+        
         
         if(Input.GetKey(KeyCode.LeftControl)&& Input.GetKey(KeyCode.D))
         {
@@ -184,13 +184,13 @@ public class Player : MonoBehaviour
     public void LvUp()
     {
         lv++;
-        maxExp += (maxExp * 5) / 100;
+        maxExp += (maxExp * 15) / 100;
         exp = 0;
          
-        defense += (defense * 3 / 100)+5;
+        defense += (defense * 6 / 100)+5;
         str+= 10;
         
-        maxHp += maxHp * 5 / 100;
+        maxHp += maxHp * 9 / 100;
         hp = maxHp;
         atk += ((atk * 4) / 100) + str/2;
         GameObject.Find("EXP").GetComponent<Image>().fillAmount = (float)exp / (float)maxExp;

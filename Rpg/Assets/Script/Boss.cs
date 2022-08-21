@@ -32,8 +32,8 @@ public class Boss : MonoBehaviour
         chaseThePlayer = false;
         hp = 1000000;
         maxHp = 1000000;
-        atk = 30000;
-        defense = 100000;
+        atk = 35000;
+        defense = 40000;
         exp = 100000;
         bossPos = this.gameObject.transform.position;
     }
@@ -114,7 +114,7 @@ public class Boss : MonoBehaviour
             bossHp.SetActive(false);
             this.gameObject.transform.position = bossPos;
             timer = 0;
-             
+            hp = maxHp;
         }
         if (hp <= 0)
         {
